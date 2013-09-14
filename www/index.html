@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<!--!---->
+    <!--nsed to the Apache Software Foundation (ASF) under -->
+    <!--ore contributor license agreements.  See the NOTICE f-->
+    <!--ributed with this work for additional informat-->
+    <!--rding copyright ownership.  The ASF licenses this f-->
+    <!--ou under the Apache License, Version 2.0 (-->
+    <!--ense"); you may not use this file except in complia-->
+    <!-- the License.  You may obtain a copy of the License-->
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    <!--://www.apache.org/licenses/LICENSE--->
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+    <!--ss required by applicable law or agreed to in writi-->
+    <!--ware distributed under the License is distributed on-->
+    <!--IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF -->
+     <!--, either express or implied.  See the License for -->
+    <!--ific language governing permissions and limitati-->
+    <!--r the Licen-->
+<!---->-->
 
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <title>Hello Gunnar</title>
-    </head>
-    <body>
+        <script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}]"></script>
+        <script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/Button",
+  "dojox/mobile/TextBox",
+  "dojox/mobile/Slider"
+]);
+</script>
+      </head>
+    <body data-maq-ws="collapse" data-maq-comptype="desktop" data-maq-flow-layout="true" data-maq-appstates="{}" id="myapp">
         <div class="app">
             <h1>Kesseltronics App</h1>
             <div id="deviceready" class="blink">
@@ -40,21 +54,30 @@
             app.initialize();
         </script>
         <script type="text/javascript">
-            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-    
-            scanner.scan(
-                function (result) {
-                    alert("We got a barcode\n" +
-                        "Result: " + result.text + "\n" +
-                        "Format: " + result.format + "\n" +
-                        "Cancelled: " + result.cancelled);
-                }, 
-                function (error) {
-                    alert("Scanning failed: " + error);
-                }
-            );
+	          function myFunction(){
+	            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+	    
+	            scanner.scan(
+	                function (result) {
+	                    alert("We got a barcode\n" +
+	                        "Result: " + result.text + "\n" +
+	                        "Format: " + result.format + "\n" +
+	                        "Cancelled: " + result.cancelled);
+	                }, 
+	                function (error) {
+	                    alert("Scanning failed: " + error);
+	                }
+	            );
+	        }
         </script>
-
-
-    </body>
+        <button data-dojo-type="dojox/mobile/Button" onclick="myFunction()">
+          Scan Bar Code</button>
+        <button data-dojo-type="dojox/mobile/Button">
+        Button</button>
+        <button data-dojo-type="dojox/mobile/Button">
+          Button</button>
+        <input type="text" data-dojo-type="dojox/mobile/TextBox"></input>
+        <input type="range" data-dojo-type="dojox/mobile/Slider"></input>
+      </body>
 </html>
+
