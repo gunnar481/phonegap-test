@@ -17,6 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -38,5 +39,22 @@
         <script type="text/javascript">
             app.initialize();
         </script>
+        <script type="text/javascript">
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+    
+            scanner.scan(
+                function (result) {
+                    alert("We got a barcode\n" +
+                        "Result: " + result.text + "\n" +
+                        "Format: " + result.format + "\n" +
+                        "Cancelled: " + result.cancelled);
+                }, 
+                function (error) {
+                    alert("Scanning failed: " + error);
+                }
+            );
+        </script>
+
+
     </body>
 </html>
